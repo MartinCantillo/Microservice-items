@@ -1,10 +1,11 @@
 package com.martin.cloud.items.msv_items.controllers;
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import com.martin.cloud.items.msv_items.services.ItemService;
+
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +20,8 @@ public class ItemController {
 
     private final ItemService itemService;
 
-    public ItemController(ItemService itemServices){
-        this.itemService=itemServices;
+    public ItemController(ItemService itemServices) {
+        this.itemService = itemServices;
     }
 
     @GetMapping
@@ -30,8 +31,13 @@ public class ItemController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Item> findById(@PathVariable Long id) {
-        return ResponseEntity.ok().body(this.itemService.findById(id).orElseThrow());
+
+        Optional <Item> itemOptional=this.itemService.findById(id);
+        if (itemOptional.isPresent()) {
+
+            return ResponseEntity.ok(itemOptional.get());
+        }
+        return ResponseEntity.notFound().build();
     }
-    
-    
+
 }
