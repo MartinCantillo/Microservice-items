@@ -1,8 +1,6 @@
 package com.martin.cloud.items.msv_items.models;
 
 import lombok.*;
-
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
