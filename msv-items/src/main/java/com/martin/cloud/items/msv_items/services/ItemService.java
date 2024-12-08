@@ -7,6 +7,6 @@ import com.martin.cloud.items.msv_items.models.Item;
 public interface ItemService {
 
     List<Item>findAll();
-    
-    Optional<Item>findById();
+
+    Optional<Item>findById(Long id);
 }
