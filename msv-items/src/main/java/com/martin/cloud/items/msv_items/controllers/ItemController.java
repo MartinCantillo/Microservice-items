@@ -1,17 +1,18 @@
 package com.martin.cloud.items.msv_items.controllers;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
-import org.springframework.web.bind.annotation.RestController;
-
-import com.martin.cloud.items.msv_items.services.ItemService;
-
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.martin.cloud.items.msv_items.models.Item;
+import com.martin.cloud.items.msv_items.services.ItemService;
 
 @RequestMapping("/api/item")
 @RestController
@@ -19,7 +20,8 @@ public class ItemController {
 
     private final ItemService itemService;
 
-    public ItemController(ItemService itemServices) {
+    //Qualifier allows to aim at  to the bean reference or to the specific implementation of this interface  
+    public ItemController(@Qualifier("itemServiceWebClient")ItemService itemServices) {
         this.itemService = itemServices;
     }
 
