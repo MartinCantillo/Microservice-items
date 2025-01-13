@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MsvItemsApplication<msv-items>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.martin.cloud.items.msv_items.MsvItemsApplication",
+            "projectName": "msv-items",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
